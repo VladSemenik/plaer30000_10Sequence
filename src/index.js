@@ -1,4 +1,5 @@
 module.exports = function longestConsecutiveLength(array) {
+
   // your solution here
   array.sort(function(a, b){
         return a-b;
@@ -8,15 +9,22 @@ module.exports = function longestConsecutiveLength(array) {
     for(let i=0; i<result.length;i++){
         result[i]=1;
     }
+    for(var i=0; i<array.length-1; i++){
+        array[i] = Number(array[i]);
+    }
+
     var numberpos=0;
     if(array.length==1) result = [1];
-    else
-    for(var i=0; i<array.length-1; i++){
-        
-        if(array[i+1]-array[i]==1)
-            result[numberpos]++;
-        else{
-            numberpos++;
+    else{
+        for(var i=0; i<array.length-1; i++){
+           if(array[i+1]-array[i]===0){
+
+           }else
+            if(array[i+1]-array[i]===1)
+                result[numberpos]++;
+            else{
+                numberpos++;
+            }
         }
     }
     function getMaxOfArray(numArray){
